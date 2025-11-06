@@ -64,7 +64,9 @@ func load_stats() -> void:
         return
     var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
     if file:
-        var data := file.get_var()
-        best_time = data.get("best_time", 0.0)
-        best_kills = data.get("best_kills", 0)
+        var data_variant: Variant = file.get_var()
+        if data_variant is Dictionary:
+            var data: Dictionary = data_variant
+            best_time = data.get("best_time", 0.0)
+            best_kills = data.get("best_kills", 0)
         file.close()
