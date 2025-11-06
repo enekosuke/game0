@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_nube"]
+[ext_resource type="PackedScene" path="res://scenes/XpOrb.tscn" id="2_nube"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nube"]
+radius = 15.0
+
+[node name="NubeEnemy" type="CharacterBody2D"]
+script = ExtResource("1_nube")
+enemy_type = "nube"
+max_health = 38.0
+move_speed = 100.0
+contact_damage = 12.0
+xp_reward = 26.0
+xp_orb_scene = ExtResource("2_nube")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nube")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.4, 0.8, 0.4, 0.9)
+scale = Vector2(0.6, 0.6)

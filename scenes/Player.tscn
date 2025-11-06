@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/Projectile.tscn" id="2_projectile"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
+radius = 10.0
+height = 28.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+projectile_scene = ExtResource("2_projectile")
+move_speed = 220.0
+max_health = 120.0
+attack_interval = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.3, 0.6, 1, 1)
+scale = Vector2(0.8, 0.8)
