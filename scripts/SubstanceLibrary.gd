@@ -1,3 +1,4 @@
+class_name SubstanceLibrary
 extends Node
 
 const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
@@ -29,7 +30,7 @@ func _add_substance(id: String, name: String, positive: String, negative: String
     s.base_spawn_weight = base_spawn_weight
     substances[id] = s
 
-func get_all() -> Array:
+func get_all() -> Array[Substance]:
     return substances.values()
 
 func get_by_id(id: String) -> Substance:
