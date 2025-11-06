@@ -1,3 +1,5 @@
+const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
+
 class_name SubstanceSelection
 extends Control
 
@@ -7,14 +9,14 @@ signal closed
 @onready var title_label: Label = $Panel/MarginContainer/VBoxContainer/Title
 @onready var description_label: Label = $Panel/MarginContainer/VBoxContainer/Description
 
-var manager: Node
+var manager: SubstanceManager
 var player: Player
-var current_options: Array = []
+var current_options: Array[Substance] = []
 
-func present(manager_ref: Node, player_ref: Player, options: Array) -> void:
+func present(manager_ref: SubstanceManager, player_ref: Player, options: Array[Substance]) -> void:
     manager = manager_ref
     player = player_ref
-    current_options = options
+    current_options = (options.duplicate()) as Array[Substance]
     visible = true
     _refresh()
     get_tree().paused = true
@@ -22,7 +24,7 @@ func present(manager_ref: Node, player_ref: Player, options: Array) -> void:
 func _refresh() -> void:
     for child in options_container.get_children():
         child.queue_free()
-    for substance in current_options:
+    for substance: Substance in current_options:
         var button := Button.new()
         var display_level := min(substance.level + 1, substance.max_level)
         button.text = "%s (Nivel %d)" % [substance.display_name, display_level]

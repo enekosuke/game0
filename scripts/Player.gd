@@ -172,7 +172,7 @@ func _apply_sugar_penalty() -> void:
     speed_multiplier = max(0.6, speed_multiplier - 0.05)
     sugar_penalty_timer.start()
 
-func enable_tremors(level: int) -> void:
+func enable_tremors(_level: int) -> void:
     # Implementation placeholder for camera shake or sprite jitter
     pass
 

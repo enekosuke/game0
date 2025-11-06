@@ -8,7 +8,7 @@ var best_time: float = 0.0
 var best_kills: int = 0
 var current_run_time: float = 0.0
 var current_kills: int = 0
-var substances_taken: Array = []
+var substances_taken: Array[SubstanceChoice] = []
 var run_active: bool = false
 
 func start_run() -> void:
@@ -33,7 +33,7 @@ func add_time(delta: float) -> void:
         current_run_time += delta
 
 func register_substance(choice: SubstanceChoice) -> void:
-    for existing in substances_taken:
+    for existing: SubstanceChoice in substances_taken:
         if existing.substance.id == choice.substance.id:
             existing.level = choice.level
             return
@@ -67,6 +67,6 @@ func load_stats() -> void:
         var data_variant: Variant = file.get_var()
         if data_variant is Dictionary:
             var data: Dictionary = data_variant
-            best_time = data.get("best_time", 0.0)
-            best_kills = data.get("best_kills", 0)
+            best_time = float(data.get("best_time", 0.0))
+            best_kills = int(data.get("best_kills", 0))
         file.close()
