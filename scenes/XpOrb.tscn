@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/XpOrb.gd" id="1_2hs0p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cum3a"]
+radius = 8.0
+
+[node name="XpOrb" type="Area2D"]
+script = ExtResource("1_2hs0p")
+monitoring = true
+monitorable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cum3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.2, 0.9, 0.3, 1.0)
+scale = Vector2(0.5, 0.5)

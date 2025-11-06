@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/DeathScreen.gd" id="1_death"]
+
+[node name="DeathScreen" type="Control"]
+script = ExtResource("1_death")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.25
+anchor_top = 0.15
+anchor_right = 0.75
+anchor_bottom = 0.85
+custom_constants/margin_left = 24
+custom_constants/margin_top = 24
+custom_constants/margin_right = 24
+custom_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_constants/separation = 12
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+text = "Fin de la partida"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+text = "Tiempo sobrevivido: 00:00"
+horizontal_alignment = 1
+
+[node name="KillsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+text = "Enemigos derrotados: 0"
+horizontal_alignment = 1
+
+[node name="SubstancesLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+text = "Sustancias elegidas:"
+
+[node name="Substances" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_constants/separation = 4
+
+[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer"]
+text = "Reintentar"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+text = "Volver al menú"
