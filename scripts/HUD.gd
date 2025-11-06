@@ -1,5 +1,6 @@
-class_name HUD
 extends Control
+
+class_name HUD
 
 @onready var health_bar: ProgressBar = $MarginContainer/VBoxContainer/Health/HealthBar
 @onready var health_label: Label = $MarginContainer/VBoxContainer/Health/HealthLabel

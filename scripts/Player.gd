@@ -1,5 +1,6 @@
-class_name Player
 extends CharacterBody2D
+
+class_name Player
 
 signal level_up(level: int)
 signal health_changed(current: float, max: float)

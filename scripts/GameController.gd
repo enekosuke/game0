@@ -1,6 +1,6 @@
-const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
-
 extends Node2D
+
+const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
 
 @onready var player: Player = $Player
 @onready var enemy_spawner: EnemySpawner = $EnemySpawner

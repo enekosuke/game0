@@ -1,5 +1,6 @@
-class_name SubstanceLibrary
 extends Node
+
+class_name SubstanceLibrary
 
 const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
 

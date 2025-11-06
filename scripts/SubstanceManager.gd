@@ -1,5 +1,6 @@
-class_name SubstanceManager
 extends Node
+
+class_name SubstanceManager
 
 const SubstanceDefinitions = preload("res://scripts/SubstanceDefinitions.gd")
 const Substance = SubstanceDefinitions.Substance

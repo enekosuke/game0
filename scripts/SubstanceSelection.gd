@@ -1,7 +1,8 @@
+extends Control
+
 const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
 
 class_name SubstanceSelection
-extends Control
 
 signal closed
 
