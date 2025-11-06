@@ -24,19 +24,19 @@ func get_spawn_weight() -> float:
         return 0.0
     return base_spawn_weight * (1.0 + 0.35 * (level - 1))
 
-class_name SubstanceChoice
-extends RefCounted
+class SubstanceChoice:
+    extends RefCounted
 
-var substance: Substance
-var level: int
+    var substance: Substance
+    var level: int
 
-func _init(substance_ref: Substance) -> void:
-    substance = substance_ref
-    level = substance.level
+    func _init(substance_ref: Substance) -> void:
+        substance = substance_ref
+        level = substance.level
 
-func to_dict() -> Dictionary:
-    return {
-        "id": substance.id,
-        "name": substance.display_name,
-        "level": level
-    }
+    func to_dict() -> Dictionary:
+        return {
+            "id": substance.id,
+            "name": substance.display_name,
+            "level": level
+        }
