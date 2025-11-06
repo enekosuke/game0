@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_hn2ma"]
+[ext_resource type="PackedScene" path="res://scenes/XpOrb.tscn" id="2_hn2ma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m32v1"]
+radius = 16.0
+
+[node name="BorrachoEnemy" type="CharacterBody2D"]
+script = ExtResource("1_hn2ma")
+enemy_type = "borracho"
+max_health = 45.0
+move_speed = 110.0
+contact_damage = 14.0
+knockback_force = 320.0
+xp_reward = 30.0
+xp_orb_scene = ExtResource("2_hn2ma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m32v1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.9, 0.6, 0.3, 1)
+scale = Vector2(0.7, 0.7)

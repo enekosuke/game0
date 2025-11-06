@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_sombra"]
+[ext_resource type="PackedScene" path="res://scenes/XpOrb.tscn" id="2_sombra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sombra"]
+radius = 18.0
+
+[node name="SombraEnemy" type="CharacterBody2D"]
+script = ExtResource("1_sombra")
+enemy_type = "sombra"
+max_health = 60.0
+move_speed = 80.0
+contact_damage = 18.0
+knockback_force = 200.0
+xp_reward = 40.0
+xp_orb_scene = ExtResource("2_sombra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sombra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.2, 0.2, 0.3, 1)
+scale = Vector2(0.8, 0.8)

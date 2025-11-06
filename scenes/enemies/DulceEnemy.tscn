@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_swe20"]
+[ext_resource type="PackedScene" path="res://scenes/XpOrb.tscn" id="2_swe20"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dulc1"]
+radius = 12.0
+
+[node name="DulceEnemy" type="CharacterBody2D"]
+script = ExtResource("1_swe20")
+enemy_type = "dulce"
+max_health = 28.0
+move_speed = 140.0
+contact_damage = 9.0
+xp_reward = 18.0
+xp_orb_scene = ExtResource("2_swe20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dulc1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.8, 0.2, 1)
+scale = Vector2(0.5, 0.5)
