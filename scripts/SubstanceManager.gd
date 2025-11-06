@@ -38,6 +38,7 @@ func roll_options(count: int = 4) -> Array[Substance]:
         list = (list.duplicate()) as Array[Substance]
     list.shuffle()
     var options: Array[Substance] = (list.slice(0, min(count, list.size()))) as Array[Substance]
+    var options: Array = list.slice(0, min(count, list.size()))
     options_ready.emit(options)
     return options
 
@@ -52,6 +53,7 @@ func apply_substance(substance: Substance, player: Player) -> void:
     substance_selected.emit(substance)
 
 func _apply_positive_effect(substance: Substance, player: Player) -> void:
+func _apply_positive_effect(substance: Substance, player: Node) -> void:
     var level_multiplier: float = substance.get_level_multiplier()
     match substance.id:
         "tabaco":
