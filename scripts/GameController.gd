@@ -1,3 +1,5 @@
+const Substance = preload("res://scripts/SubstanceDefinitions.gd").Substance
+
 extends Node2D
 
 @onready var player: Player = $Player
@@ -24,7 +26,7 @@ func _ready() -> void:
 
 func _on_player_level_up(level: int) -> void:
     enemy_spawner.on_player_level_up(level)
-    var options := substance_manager.roll_options()
+    var options: Array[Substance] = substance_manager.roll_options()
     selection.present(substance_manager, player, options)
 
 func _on_player_health_changed(current: float, maximum: float) -> void:
@@ -43,6 +45,6 @@ func _on_selection_closed() -> void:
     # Additional handling can be added here
     pass
 
-func _on_substance_selected(substance: Substance) -> void:
+func _on_substance_selected(_substance: Substance) -> void:
     # Hook for future analytics or feedback
     pass

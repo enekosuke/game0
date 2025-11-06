@@ -37,6 +37,7 @@ func set_player(player_ref: Player) -> void:
     player = player_ref
 
 func modify_spawn_weight(enemy_type: String, amount: float) -> void:
+    enemy_type = _normalize_enemy_type(enemy_type)
     if not spawn_weights.has(enemy_type):
         spawn_weights[enemy_type] = max(0.1, amount)
     else:
@@ -50,8 +51,11 @@ func on_player_level_up(level: int) -> void:
 func _spawn_enemy() -> void:
     if not player:
         return
-    var enemy_type := _pick_enemy_type()
+    var enemy_type := _normalize_enemy_type(_pick_enemy_type())
     var scene: PackedScene = enemy_catalog.get(enemy_type)
+    if scene == null:
+        if enemy_type == "humo":
+            scene = load("res://scenes/enemies/HumonEnemy.tscn") as PackedScene
     if scene == null:
         return
     var enemy: Enemy = scene.instantiate()
@@ -78,3 +82,8 @@ func _random_position_around_player() -> Vector2:
     var radius := spawn_radius + rng.randf() * 100.0
     var offset := Vector2(cos(angle), sin(angle)) * radius
     return player.global_position + offset
+
+func _normalize_enemy_type(enemy_type: String) -> String:
+    if enemy_type == "humon":
+        return "humo"
+    return enemy_type

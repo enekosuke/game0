@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_7t8h2"]
+[ext_resource type="PackedScene" path="res://scenes/XpOrb.tscn" id="2_f0y20"]
+
+[node name="HumonEnemy" type="CharacterBody2D"]
+script = ExtResource("1_7t8h2")
+enemy_type = "humo"
+max_health = 35.0
+move_speed = 90.0
+contact_damage = 8.0
+xp_reward = 20.0
+xp_orb_scene = ExtResource("2_f0y20")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_af23b"]
+radius = 14.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_af23b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.7, 0.7, 0.7, 0.9)
+scale = Vector2(0.6, 0.6)
