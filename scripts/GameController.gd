@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _on_player_level_up(level: int) -> void:
     enemy_spawner.on_player_level_up(level)
-    var options := substance_manager.roll_options()
+    var options: Array = substance_manager.roll_options()
     selection.present(substance_manager, player, options)
 
 func _on_player_health_changed(current: float, maximum: float) -> void:

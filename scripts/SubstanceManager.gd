@@ -28,7 +28,7 @@ func roll_options(count: int = 4) -> Array:
     else:
         list = list.duplicate()
     list.shuffle()
-    var options := list.slice(0, min(count, list.size()))
+    var options: Array = list.slice(0, min(count, list.size()))
     options_ready.emit(options)
     return options
 
@@ -40,7 +40,7 @@ func apply_substance(substance: Substance, player: Node) -> void:
     substance_selected.emit(substance)
 
 func _apply_positive_effect(substance: Substance, player: Node) -> void:
-    var level_multiplier := substance.get_level_multiplier()
+    var level_multiplier: float = substance.get_level_multiplier()
     match substance.id:
         "tabaco":
             player.add_speed_bonus(0.10 * level_multiplier)

@@ -95,7 +95,7 @@ func _on_attack_timeout() -> void:
         projectile.set_direction(direction.rotated(spread))
         projectile.damage = get_damage()
         get_tree().current_scene.add_child(projectile)
-    var new_wait := max(0.2, attack_interval / (fire_rate_multiplier + projectile_frequency_bonus))
+    var new_wait: float = max(0.2, attack_interval / (fire_rate_multiplier + projectile_frequency_bonus))
     attack_timer.wait_time = new_wait
     attack_timer.start()
 
