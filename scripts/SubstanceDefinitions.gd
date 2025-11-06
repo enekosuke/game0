@@ -1,5 +1,6 @@
-class_name Substance
 extends Resource
+
+class_name Substance
 
 @export var id: String
 @export var display_name: String

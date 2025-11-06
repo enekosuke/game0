@@ -1,5 +1,6 @@
-class_name EnemySpawner
 extends Node2D
+
+class_name EnemySpawner
 
 @export var spawn_interval: float = 2.5
 @export var spawn_radius: float = 500.0

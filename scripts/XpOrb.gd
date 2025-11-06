@@ -1,5 +1,6 @@
-class_name XpOrb
 extends Area2D
+
+class_name XpOrb
 
 @export var xp_amount: float = 20.0
 var target: Player
